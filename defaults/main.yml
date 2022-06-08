@@ -114,3 +114,6 @@ rabbitmq_newrelic_vhosts:
 rabbitmq_newrelic_labels:
   env: ""
   role: ""
+
+# Erlang
+erlang_version: "1:24.3"

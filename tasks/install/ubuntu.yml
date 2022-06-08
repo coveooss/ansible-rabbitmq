@@ -5,6 +5,12 @@
     state: present
   when: not rabbitmq_os_package
 
+- name: Add erlang repository's key
+  apt_key:
+    url: "https://packages.erlang-solutions.com/ubuntu/erlang_solutions.asc"
+    state: present
+  when: not rabbitmq_os_package
+
 - name: Add rabbitmq repository's key
   apt_key:
     keyserver: "keyserver.ubuntu.com"
@@ -34,7 +40,13 @@
 
 - name: Wait for apt lock
   shell: while fuser /var/lib/apt/lists/lock >/dev/null 2>&1; do sleep 1; done;
-  
+
+- name: Set specific erlang version
+  template:
+    src: erlang.preferences.j2
+    dest: /etc/apt/preferences.d/erlang
+    backup: true
+
 - name: Install rabbitmq-server
   apt:
     name: rabbitmq-server={{ rabbitmq_package }}
