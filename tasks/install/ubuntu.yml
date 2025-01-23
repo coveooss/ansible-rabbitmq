@@ -5,6 +5,12 @@
     state: present
   when: not rabbitmq_os_package
 
+- name: Add erlang repository's key
+  apt_key:
+    url: "https://packages.erlang-solutions.com/ubuntu/erlang_solutions.asc"
+    state: present
+  when: not rabbitmq_os_package
+
 - name: Add rabbitmq repository's key
   apt_key:
     keyserver: "keyserver.ubuntu.com"
