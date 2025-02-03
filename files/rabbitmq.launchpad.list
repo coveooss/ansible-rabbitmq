@@ -1,2 +1,2 @@
-deb https://packages.erlang-solutions.com/ubuntu focal contrib
-deb https://packagecloud.io/rabbitmq/rabbitmq-server/ubuntu/ focal main
+deb https://ppa.launchpad.net/rabbitmq/rabbitmq-erlang/ubuntu noble main
+deb https://packagecloud.io/rabbitmq/rabbitmq-server/ubuntu/ noble main
