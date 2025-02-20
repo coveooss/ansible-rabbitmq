@@ -26,9 +26,9 @@
   when: not rabbitmq_os_package
 
 - name: Add launchpad rabbitmq repository
-  copy:
-    src: rabbitmq.launchpad.list
-    dest: /etc/apt/sources.list.d/
+  template:
+    src: rabbitmq.launchpad.list.j2
+    dest: /etc/apt/sources.list.d/rabbitmq.launchpad.list
     backup: true
   when: not rabbitmq_os_package
 
